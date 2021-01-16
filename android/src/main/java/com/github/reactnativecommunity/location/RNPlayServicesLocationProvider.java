@@ -172,7 +172,9 @@ public class RNPlayServicesLocationProvider implements RNLocationProvider {
                         // Show the dialog by calling startResolutionForResult(),
                         // and check the result in onActivityResult().
                         ResolvableApiException resolvable = (ResolvableApiException) e;
-                        resolvable.startResolutionForResult(activity, REQUEST_CHECK_SETTINGS);
+                        if ( activity!= null) {
+                            resolvable.startResolutionForResult(activity, REQUEST_CHECK_SETTINGS);
+                        }
                     } catch (IntentSender.SendIntentException sendEx) {
                         // Ignore the error.
                     }
